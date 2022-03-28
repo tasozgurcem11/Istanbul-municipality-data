@@ -10,9 +10,7 @@ if __name__ == '__main__':
     kiosk_locations = pd.read_csv('data/kiosk_locations.csv', delimiter=',')
     parking_locations = pd.read_csv('data/parking_locations.csv', delimiter=',')
 
-
     print(number_of_users.head())
-
 
     location_group_english_to_turkish = {
         "Mobil": "Mobile",
@@ -39,13 +37,12 @@ if __name__ == '__main__':
     wifi_locations.drop(columns=['LOCATION_TYPE', 'LOCATION_CODE', 'LOCATION'], inplace=True)
     print(wifi_locations.head())
 
-
     kiosk_locations.drop(columns=['Ilce_Adi', 'Mahalle_Adi', 'Bufe_Adi'], inplace=True)
-    kiosk_locations.rename(columns={'Enlem': 'LATITUDE', 'Boylam': 'LONGITUDE'}, inplace=True)
+    kiosk_locations.rename(columns={'Enlem': 'LATITUDE', 'Boylam': 'LONGITUDE', '_id': 'ID'}, inplace=True)
 
     print(kiosk_locations.head())
 
-
-    kiosk_locations.drop(columns=['PARK_NAME', 'LOCATION_NAME', 'PARK_TYPE_ID', 'PARK_TYPE_DESC', 'COUNTY_NAME'],
+    parking_locations.drop(columns=['PARK_NAME', 'LOCATION_NAME', 'PARK_TYPE_ID', 'PARK_TYPE_DESC', 'COUNTY_NAME'],
                          inplace=True)
+    parking_locations.rename(columns={'_id': 'ID'}, inplace=True)
     print(parking_locations.head())
