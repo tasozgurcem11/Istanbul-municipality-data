@@ -49,7 +49,3 @@ if __name__ == '__main__':
     kiosk_locations.drop(columns=['PARK_NAME', 'LOCATION_NAME', 'PARK_TYPE_ID', 'PARK_TYPE_DESC', 'COUNTY_NAME'],
                          inplace=True)
     print(parking_locations.head())
-
-
-
-
