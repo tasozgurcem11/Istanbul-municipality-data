@@ -30,16 +30,13 @@ if __name__ == '__main__':
         "Turistik Mekan": "Tourist Place",
         "Sehir Hatlari Iskelesi": "City Ferry"
     }
-
     wifi_locations['LOCATION_GROUP'] = wifi_locations['LOCATION_GROUP'].replace(location_group_english_to_turkish,
                                                                              regex=True)
-
     wifi_locations.drop(columns=['LOCATION_TYPE', 'LOCATION_CODE', 'LOCATION'], inplace=True)
     print(wifi_locations.head())
 
     kiosk_locations.drop(columns=['Ilce_Adi', 'Mahalle_Adi', 'Bufe_Adi'], inplace=True)
     kiosk_locations.rename(columns={'Enlem': 'LATITUDE', 'Boylam': 'LONGITUDE', '_id': 'ID'}, inplace=True)
-
     print(kiosk_locations.head())
 
     parking_locations.drop(columns=['PARK_NAME', 'LOCATION_NAME', 'PARK_TYPE_ID', 'PARK_TYPE_DESC', 'COUNTY_NAME'],
