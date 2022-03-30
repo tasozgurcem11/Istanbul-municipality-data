@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import os
@@ -43,3 +44,14 @@ if __name__ == '__main__':
                          inplace=True)
     parking_locations.rename(columns={'_id': 'ID'}, inplace=True)
     print(parking_locations.head())
+
+
+    fuel_station_locations = pd.read_csv('data/fuel_station.csv', delimiter=',')
+    columns_to_drop = ['BUSINESS_TYPE_DESC', 'FUEL_DISTRIBUTION_COMPANY_ID', 'FUEL_DISTRIBUTION_COMPANY_DESC',
+                       'LPG_DISTRIBUTION_COMPANY_ID', 'LPG_DISTRIBUTION_COMPANY_DESC', 'FACILITY_TYPE_ID',
+                       'BUSINESS_TYPE_ID', 'COUNTY_UAVT_CODE', 'COUNTY_NAME', 'NEIGHBORHOOD_UAVT_CODE',
+                       'NEIGHBORHOOD_NAME', 'FACILITY_TYPE_DESC']
+    fuel_station_locations.drop(columns=columns_to_drop, inplace=True)
+
+    # Print the first 5 rows of the dataframe
+    print(fuel_station_locations.head())
