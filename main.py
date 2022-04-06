@@ -52,14 +52,15 @@ if __name__ == '__main__':
                        'BUSINESS_TYPE_ID', 'COUNTY_UAVT_CODE', 'COUNTY_NAME', 'NEIGHBORHOOD_UAVT_CODE',
                        'NEIGHBORHOOD_NAME', 'FACILITY_TYPE_DESC']
     fuel_stations.drop(columns=columns_to_drop, inplace=True)
+    fuel_stations.rename(columns={'LONGTITUDE': 'LONGITUDE'}, inplace=True)
 
     # Print the first 5 rows of the dataframe
     print(fuel_stations.head())
 
     # Export dataframes to a csv file
-    number_of_users.to_csv('data/number_of_users.csv', index=False)
-    wifi_locations.to_csv('data/wifi_locations.csv', index=False)
-    kiosk_locations.to_csv('data/kiosk_locations.csv', index=False)
-    parking_locations.to_csv('data/parking_lots.csv', index=False)
-    fuel_stations.to_csv('data/fuel_stations.csv', index=False)
+    number_of_users.to_csv('data/export/number_of_users.csv', index=False)
+    wifi_locations.to_csv('data/export/wifi_locations.csv', index=False)
+    kiosk_locations.to_csv('data/export/kiosk_locations.csv', index=False)
+    parking_locations.to_csv('data/export/parking_lots.csv', index=False)
+    fuel_stations.to_csv('data/export/fuel_stations.csv', index=False)
 
