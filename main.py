@@ -7,9 +7,10 @@ import os
 if __name__ == '__main__':
 
     number_of_users = pd.read_csv('data/wifi_users_by_years.csv', delimiter=';', encoding='latin-1')
-    wifi_locations = pd.read_csv('data/wifi_point_locations.csv', delimiter=',')
-    kiosk_locations = pd.read_csv('data/kiosk_locations.csv', delimiter=',')
-    parking_locations = pd.read_csv('data/parking_locations.csv', delimiter=',')
+    wifi_locations = pd.read_csv('data/wifi_points.csv', delimiter=',')
+    kiosk_locations = pd.read_csv('data/kiosks.csv', delimiter=',')
+    parking_locations = pd.read_csv('data/parking_lots.csv', delimiter=',')
+    fuel_stations = pd.read_csv('data/fuel_stations.csv', delimiter=',')
 
     print(number_of_users.head())
 
@@ -46,12 +47,13 @@ if __name__ == '__main__':
     print(parking_locations.head())
 
 
-    fuel_station_locations = pd.read_csv('data/fuel_station.csv', delimiter=',')
     columns_to_drop = ['BUSINESS_TYPE_DESC', 'FUEL_DISTRIBUTION_COMPANY_ID', 'FUEL_DISTRIBUTION_COMPANY_DESC',
                        'LPG_DISTRIBUTION_COMPANY_ID', 'LPG_DISTRIBUTION_COMPANY_DESC', 'FACILITY_TYPE_ID',
                        'BUSINESS_TYPE_ID', 'COUNTY_UAVT_CODE', 'COUNTY_NAME', 'NEIGHBORHOOD_UAVT_CODE',
                        'NEIGHBORHOOD_NAME', 'FACILITY_TYPE_DESC']
-    fuel_station_locations.drop(columns=columns_to_drop, inplace=True)
+    fuel_stations.drop(columns=columns_to_drop, inplace=True)
 
     # Print the first 5 rows of the dataframe
-    print(fuel_station_locations.head())
+    print(fuel_stations.head())
+
+
