@@ -14,6 +14,7 @@ if __name__ == '__main__':
 
     print(number_of_users.head())
 
+    # Wifi Hotspot Locations
     location_group_english_to_turkish = {
         "Mobil": "Mobile",
         "Hizmet Binasi": "Service Building",
@@ -37,16 +38,18 @@ if __name__ == '__main__':
     wifi_locations.drop(columns=['LOCATION_TYPE', 'LOCATION_CODE', 'LOCATION'], inplace=True)
     print(wifi_locations.head())
 
+    # Kiosk Locations
     kiosk_locations.drop(columns=['Ilce_Adi', 'Mahalle_Adi', 'Bufe_Adi'], inplace=True)
     kiosk_locations.rename(columns={'Enlem': 'LATITUDE', 'Boylam': 'LONGITUDE', '_id': 'ID'}, inplace=True)
     print(kiosk_locations.head())
 
+    # Parking Locations
     parking_locations.drop(columns=['PARK_NAME', 'LOCATION_NAME', 'PARK_TYPE_ID', 'PARK_TYPE_DESC', 'COUNTY_NAME'],
                          inplace=True)
     parking_locations.rename(columns={'_id': 'ID'}, inplace=True)
     print(parking_locations.head())
 
-
+    # Fuel Stations
     columns_to_drop = ['BUSINESS_TYPE_DESC', 'FUEL_DISTRIBUTION_COMPANY_ID', 'FUEL_DISTRIBUTION_COMPANY_DESC',
                        'LPG_DISTRIBUTION_COMPANY_ID', 'LPG_DISTRIBUTION_COMPANY_DESC', 'FACILITY_TYPE_ID',
                        'BUSINESS_TYPE_ID', 'COUNTY_UAVT_CODE', 'COUNTY_NAME', 'NEIGHBORHOOD_UAVT_CODE',
