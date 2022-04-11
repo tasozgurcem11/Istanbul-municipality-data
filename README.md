@@ -11,5 +11,11 @@ information please contact me. For the license
 * Parking Lots
 * WiFi Hotspots Locations
 * WiFi Users (by year)
+* Fuel Stations
+
+### Visualization
+
+Library plotly is used for visualization. For further information please visit [plotly.com](https://plot.ly/). And get 
+mapbox access token from [here](https://www.mapbox.com/account/access-tokens/). 
 
 
