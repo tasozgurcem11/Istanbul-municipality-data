@@ -48,11 +48,13 @@ if __name__ == '__main__':
     kiosk_locations.rename(columns={'Enlem': 'LATITUDE', 'Boylam': 'LONGITUDE', '_id': 'ID'}, inplace=True)
     print(kiosk_locations.head())
 
+
     # Parking Locations
     parking_locations.drop(columns=['PARK_NAME', 'LOCATION_NAME', 'PARK_TYPE_ID', 'PARK_TYPE_DESC', 'COUNTY_NAME'],
                          inplace=True)
     parking_locations.rename(columns={'_id': 'ID'}, inplace=True)
     print(parking_locations.head())
+
 
     # Fuel Stations
     columns_to_drop = ['BUSINESS_TYPE_DESC', 'FUEL_DISTRIBUTION_COMPANY_ID', 'FUEL_DISTRIBUTION_COMPANY_DESC',
@@ -63,11 +65,12 @@ if __name__ == '__main__':
     fuel_stations.rename(columns={'LONGTITUDE': 'LONGITUDE'}, inplace=True)
     print(fuel_stations.head())
 
+
     # Firefighters Statistics
     firefighter_statistics.rename(columns={'_id': 'ID', 'Olay turu': 'EVENT_TYPE'}, inplace=True)
     firefighter_statistics.drop(columns=['Ambulans Cikis Nedeni'], inplace=True)
 
-    replace_event_types = {'Acil Tıbbi Müdahale': 'Emergency Medical', 'Tedbir ve Destek': 'Support'}
+    replace_event_types = {'Acil Tıbbi Müdahale': 'Emergency Medical', 'Tedbir ve Destek ': 'Support'}
     firefighter_statistics['EVENT_TYPE'] = firefighter_statistics['EVENT_TYPE'].replace(replace_event_types)
     print(firefighter_statistics.head())
 
@@ -78,7 +81,6 @@ if __name__ == '__main__':
     firefighter_locations['LONGITUDE'] = firefighter_locations['Koordinat'].str.split(',').str[1].replace(' ', '')
     firefighter_locations.drop(columns=['Koordinat'], inplace=True)
     print(firefighter_locations.head())
-
 
 
 
