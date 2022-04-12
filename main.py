@@ -71,7 +71,7 @@ if __name__ == '__main__':
     firefighter_statistics.drop(columns=['Ambulans Cikis Nedeni'], inplace=True)
 
     replace_event_types = {'Acil Tıbbi Müdahale': 'Emergency Medical', 'Tedbir ve Destek ': 'Support'}
-    firefighter_statistics['EVENT_TYPE'] = firefighter_statistics['EVENT_TYPE'].replace(replace_event_types)
+    firefighter_statistics['EVENT_TYPE'] = firefighter_statistics['EVENT_TYPE'].replace(replace_event_types, regex=True)
     print(firefighter_statistics.head())
 
 
