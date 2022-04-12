@@ -82,12 +82,12 @@ if __name__ == '__main__':
 
 
 
-    # # Export dataframes to a csv file
-    # number_of_users.to_csv('data/export/number_of_users.csv', index=False)
-    # wifi_locations.to_csv('data/export/wifi_locations.csv', index=False)
-    # kiosk_locations.to_csv('data/export/kiosk_locations.csv', index=False)
-    # parking_locations.to_csv('data/export/parking_lots.csv', index=False)
-    # fuel_stations.to_csv('data/export/fuel_stations.csv', index=False)
+    # Export dataframes to a csv file
+    number_of_users.to_csv('data/export/number_of_users.csv', index=False)
+    wifi_locations.to_csv('data/export/wifi_locations.csv', index=False)
+    kiosk_locations.to_csv('data/export/kiosk_locations.csv', index=False)
+    parking_locations.to_csv('data/export/parking_lots.csv', index=False)
+    fuel_stations.to_csv('data/export/fuel_stations.csv', index=False)
     firefighter_statistics.to_csv('data/export/firefighter_statistics.csv', index=False)
     firefighter_locations.to_csv('data/export/firefighter_locations.csv', index=False)
 
