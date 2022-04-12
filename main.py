@@ -11,8 +11,13 @@ if __name__ == '__main__':
     kiosk_locations = pd.read_csv('data/kiosks.csv', delimiter=',')
     parking_locations = pd.read_csv('data/parking_lots.csv', delimiter=',')
     fuel_stations = pd.read_csv('data/fuel_stations.csv', delimiter=',')
+    firefighter_statistics = pd.read_csv('data/Raw/firefighter/_tfai istatistikleri.csv', delimiter=',')
+    firefighter_locations = pd.read_excel('data/Raw/firefighter/itfaiye-konum-verisi.xlsx', sheet_name='istasyonlar')
 
-    print(number_of_users.head())
+
+    print(firefighter_locations.head())
+    print(firefighter_locations.shape)
+
 
     # Wifi Hotspot Locations
     location_group_english_to_turkish = {
@@ -34,7 +39,7 @@ if __name__ == '__main__':
         "Sehir Hatlari Iskelesi": "City Ferry"
     }
     wifi_locations['LOCATION_GROUP'] = wifi_locations['LOCATION_GROUP'].replace(location_group_english_to_turkish,
-                                                                             regex=True)
+                                                                                regex=True)
     wifi_locations.drop(columns=['LOCATION_TYPE', 'LOCATION_CODE', 'LOCATION'], inplace=True)
     print(wifi_locations.head())
 
@@ -56,14 +61,26 @@ if __name__ == '__main__':
                        'NEIGHBORHOOD_NAME', 'FACILITY_TYPE_DESC']
     fuel_stations.drop(columns=columns_to_drop, inplace=True)
     fuel_stations.rename(columns={'LONGTITUDE': 'LONGITUDE'}, inplace=True)
-
-    # Print the first 5 rows of the dataframe
     print(fuel_stations.head())
 
-    # Export dataframes to a csv file
-    number_of_users.to_csv('data/export/number_of_users.csv', index=False)
-    wifi_locations.to_csv('data/export/wifi_locations.csv', index=False)
-    kiosk_locations.to_csv('data/export/kiosk_locations.csv', index=False)
-    parking_locations.to_csv('data/export/parking_lots.csv', index=False)
-    fuel_stations.to_csv('data/export/fuel_stations.csv', index=False)
+    # Firefighters Statistics
+    firefighter_statistics.rename(columns={'_id': 'ID', 'Olay turu': 'EVENT_TYPE'}, inplace=True)
+    firefighter_statistics.drop(columns=['Ambulans Cikis Nedeni'], inplace=True)
+
+    replace_event_types = {'Acil Tıbbi Müdahale': 'Emergency Medical', 'Tedbir ve Destek': 'Support'}
+    firefighter_statistics['EVENT_TYPE'] = firefighter_statistics['EVENT_TYPE'].replace(replace_event_types)
+    print(firefighter_statistics.head())
+
+
+    # Firefighters Locations
+    print(firefighter_locations.head())
+
+
+    # # Export dataframes to a csv file
+    # number_of_users.to_csv('data/export/number_of_users.csv', index=False)
+    # wifi_locations.to_csv('data/export/wifi_locations.csv', index=False)
+    # kiosk_locations.to_csv('data/export/kiosk_locations.csv', index=False)
+    # parking_locations.to_csv('data/export/parking_lots.csv', index=False)
+    # fuel_stations.to_csv('data/export/fuel_stations.csv', index=False)
+    # firefighter_statistics.to_csv('data/export/firefighter_statistics.csv', index=False)
 
