@@ -19,3 +19,6 @@ Library plotly is used for visualization. For further information please visit [
 mapbox access token from [here](https://www.mapbox.com/account/access-tokens/). 
 
 
+### Usage
+
+This data is visualized in the Kaggle notebook. For further information please visit [kaggle.com](https://www.kaggle.com/datasets/zgrcemta/istanbul-municipality-locations-dataset).
